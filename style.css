@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+nav ul{
+    display : flex;
+    align-items: center;
+    list-style-type: none;
+    height: 65px;
+    background-color: black;
+    color: white;
+   
+}
+nav ul li{
+    padding : 0 12px
+}
+
+.brand img{
+    width: 44px;
+    padding : 0 8px;
+}
+.brand{
+    display : flex;
+    align-items: center;
+    font-weight: bold; 
+    font-size: 1.3rem;
+}
+
+.container{
+    min-height:75vh;
+}
+
+.bottom{
+    position : sticky;
+    height: 130px;
+    background-color:black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#myProgressBar{
+    width: 80vw;
+    text-align: center;
+}
