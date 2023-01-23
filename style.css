@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    
 }
 
 nav ul{
@@ -30,6 +29,15 @@ nav ul li{
 
 .container{
     min-height:75vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    margin: 23px auto;
+    width: 70%;
+    border-radius:12px;
+    padding: 34px;
+    background-image: url('logo.png');
+
 }
 
 .bottom{
@@ -45,7 +53,9 @@ nav ul li{
 .icons{
     margin-top: 14px;
 }
-
+.icons i{
+    cursor: pointer;
+}
 #myProgressBar{
     width: 80vw;
     text-align: center;
