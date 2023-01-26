@@ -1,16 +1,27 @@
-let audioElement = new Audio('songs/1.mp3');
-why we are using new ?? 
+// let audioElement = new Audio('songs/1.mp3');
+// why we are using new ?? 
 
 
 console.log("Welcome to Spotify");
 // Initialize the Variables
 let songIndex = 0;
 let audioElement = new Audio('songs/1.mp3');
-//audioElement is object
+//audioElement is object name
+// Audio is class name
+
 let masterPlay = document.getElementById('masterPlay');
+// console.log(masterPlay);
+{/* <i class="far fa-3x fa-play-circle" id="masterPlay"></i> */}
+
 let myProgressBar = document.getElementById('myProgressBar');
+{/* <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100"></input> */}
+
 let gif = document.getElementById('gif');
+// {/* <img src="playing.gif" width="42px" alt="" id="gif">
+
 let masterSongName = document.getElementById('masterSongName');
+{/* <span id="masterSongName">Warriyo - Mortals [NCS Release]</span> */}
+
 let songItems = Array.from(document.getElementsByClassName('songItem'));
 
 let songs = [
