@@ -1,13 +1,81 @@
-console.log("Welcome to Spotify");
+// let audioElement = new Audio('songs/1.mp3');
+// why we are using new ?? 
 
+
+console.log("Welcome to Spotify");
 // Initialize the Variables
 let songIndex = 0;
 let audioElement = new Audio('songs/1.mp3');
+//audioElement is object name
+// Audio is class name
+
 let masterPlay = document.getElementById('masterPlay');
+// console.log(masterPlay);
+{/* <i class="far fa-3x fa-play-circle" id="masterPlay"></i> */}
+
 let myProgressBar = document.getElementById('myProgressBar');
+{/* <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100"></input> */}
+
 let gif = document.getElementById('gif');
+// {/* <img src="playing.gif" width="42px" alt="" id="gif">
+
 let masterSongName = document.getElementById('masterSongName');
+{/* <span id="masterSongName">Warriyo - Mortals [NCS Release]</span> */}
+
 let songItems = Array.from(document.getElementsByClassName('songItem'));
+// <div class="songItemContainer">
+// <div class="songItem">
+//     <img alt="1">
+//     <span class="songName">Let me Love You</span>
+//     <span class="songlistplay"><span class="timestamp">05:34 <i id="0" class="far songItemPlay fa-play-circle"></i> </span></span>
+// </div>
+// <div class="songItem">
+//     <img alt="1">
+//     <span class="songName">Let me Love You</span>
+//     <span class="songlistplay"><span class="timestamp">05:34 <i id="1" class="far songItemPlay fa-play-circle"></i> </span></span>
+// </div>
+// <div class="songItem">
+//     <img alt="1">
+//     <span class="songName">Let me Love You</span>
+//     <span class="songlistplay"><span class="timestamp">05:34 <i id="2" class="far songItemPlay fa-play-circle"></i> </span></span>
+// </div>
+// <div class="songItem">
+//     <img alt="1">
+//     <span class="songName">Let me Love You</span>
+//     <span class="songlistplay"><span class="timestamp">05:34 <i id="3" class="far songItemPlay fa-play-circle"></i> </span></span>
+// </div>
+// <div class="songItem">
+//     <img alt="1">
+//     <span class="songName">Let me Love You</span>
+//     <span class="songlistplay"><span class="timestamp">05:34 <i id="4" class="far songItemPlay fa-play-circle"></i> </span></span>
+// </div>
+// <div class="songItem">
+//     <img alt="1">
+//     <span class="songName">Let me Love You</span>
+//     <span class="songlistplay"><span class="timestamp">05:34 <i id="5" class="far songItemPlay fa-play-circle"></i> </span></span>
+// </div>
+// <div class="songItem">
+//     <img alt="1">
+//     <span class="songName">Let me Love You</span>
+//     <span class="songlistplay"><span class="timestamp">05:34 <i id="6" class="far songItemPlay fa-play-circle"></i> </span></span>
+// </div>
+// <div class="songItem">
+//     <img alt="1">
+//     <span class="songName">Let me Love You</span>
+//     <span class="songlistplay"><span class="timestamp">05:34 <i id="7" class="far songItemPlay fa-play-circle"></i> </span></span>
+// </div>
+// <div class="songItem">
+//     <img alt="1">
+//     <span class="songName">Let me Love You</span>
+//     <span class="songlistplay"><span class="timestamp">05:34 <i id="8" class="far songItemPlay fa-play-circle"></i> </span></span>
+// </div>
+// <div class="songItem">
+//     <img alt="1">
+//     <span class="songName">Let me Love You</span>
+//     <span class="songlistplay"><span class="timestamp">05:34 <i id="9" class="far songItemPlay fa-play-circle"></i> </span></span>
+// </div>
+// </div>
+
 
 let songs = [
     {songName: "Warriyo - Mortals [NCS Release]", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
@@ -22,10 +90,16 @@ let songs = [
     {songName: "Na Jaana - Salam-e-Ishq", filePath: "songs/4.mp3", coverPath: "covers/10.jpg"},
 ]
 
-songItems.forEach((element, i)=>{ 
-    element.getElementsByTagName("img")[0].src = songs[i].coverPath; 
+//changing song name below means near play button left side and and uppar harr ekk song mai Image daal raha huu
+    songItems.forEach((element, i)=>{ 
+    // let x1 = element.getElementsByTagName("img").src;
+    // console.log(x1);
+    element.getElementsByTagName("img")[0].src = songs[i].coverPath;
+    // console.log(songs[0].coverPath);
+    // <img alt="1">
+    //we have created object of songs upwards so over here I am trying to access songs coverpath using songs[i].coverpath; like for eg output of songs[0].coverpath is "covers/1.jpg"
     element.getElementsByClassName("songName")[0].innerText = songs[i].songName; 
-})
+//  <span class="songName">Let me Love You</span>
  
 
 // Handle play/pause click
@@ -56,8 +130,15 @@ myProgressBar.addEventListener('change', ()=>{
 
 const makeAllPlays = ()=>{
     Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
-        element.classList.remove('fa-pause-circle');
-        element.classList.add('fa-play-circle');
+        if(audioElement.paused){
+		element.classList.remove('fa-pause-circle');
+        	element.classList.add('fa-play-circle');
+	}
+	else{
+        	audioElement.pause();
+        	element.classList.remove('fa-pause-circle');
+        	element.classList.add('fa-play-circle');
+    }
     })
 }
 
